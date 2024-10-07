@@ -13,5 +13,21 @@
     </div>
   </div>
 */
+// intercept form
+let albumForm = document.querySelector("#album-form")
 
+albumForm.addEventListener("sumbit", (event)=> {
+  event.preventDefault()
+  //get form values
+  let title = event.target.elemets["album-title"].value
+  let description = event.target.elements["album-description"].value
+  let art = event.target.elements["album-art"].value
 
+  // add item
+  addAlbumItem(title, description, art)
+
+  // reset values
+  event.target.elements["album-title"].value = ""
+  event.target.elements["album-description"].value = ""
+  event.target.elements["album-art"].value = ""
+})
