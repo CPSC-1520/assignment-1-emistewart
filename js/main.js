@@ -30,4 +30,23 @@ albumForm.addEventListener("sumbit", (event)=> {
   event.target.elements["album-title"].value = ""
   event.target.elements["album-description"].value = ""
   event.target.elements["album-art"].value = ""
+
+  //focus on title 
+  event.target.elements["album-title"].focus()
 })
+
+let albumList = document.querySelector(".album")
+
+const addAlbumItem = (title, description, art) => {
+  let albumList = document.querySelector(".album")
+  let newAlbum = `  <div class="col">
+    <div class="card shadow-sm">
+      <img class="bd-placeholder-img card-img-top" src="${art}"/>
+      <div class="card-body">
+        <h5 class="card-title">${description}</h5>
+        <p class="card-text">${title}</p>
+      </div>
+    </div>
+  </div>`
+  albumList.innerHTML = albumList.innerHTML + newAlbum
+}
